@@ -4,23 +4,27 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
-@given('I\'m on "{page}" page')
+@given('I\'m on {page} page')
 def open_page(context, page):
     context.map = context.mapping[page]
     context.browser.maximize_window()
     context.browser.get(context.map['url'])
 
-@step('I click on "{item}"')
+@step('I click on {item}')
 def click_button(context, item):
     element = WebDriverWait(context.browser, 2).until(EC.presence_of_element_located((By.XPATH, context.map[item])))
     element.click()
 
-@step('I see "{text}"')
+@step('I see {text}')
 def chek_what_i_see(context, text):
     try:
-        WebDriverWait(context.browser, 2).until(EC.presence_of_element_located((By.XPATH, '//*[contains(text(),"'+text+'")]')))
+        WebDriverWait(context.browser, 2).until(EC.presence_of_element_located((By.XPATH, '//*[contains(text(),"{}")]'.format(text))))
     except:
-        WebDriverWait(context.browser, 2).until(EC.presence_of_element_located((By.XPATH, "//*[contains(text(),'"+text+"')]")))
+        try:
+            WebDriverWait(context.browser, 2).until(EC.presence_of_element_located((By.XPATH, "//*[contains(text(),'{}')]".format(text))))
+        except:
+            text = text.encode('utf-8', 'ignore')
+            WebDriverWait(context.browser, 2).until(EC.presence_of_element_located((By.XPATH, '//*[contains(text(),"{}")]'.format(text))))
 
 @when('I fill form')
 def fill_form(context):

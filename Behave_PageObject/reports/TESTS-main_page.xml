@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuite errors="0" failures="0" name="main_page.Sign Up" skipped="0" tests="1" time="3.997141"><testcase classname="main_page.Sign Up" name="Go to Main page" status="passed" time="3.997141"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @positive
+  Scenario: Go to Main page
+    Given I'm on Main page ... passed in 1.729s
+    When I click DISCUSSION_BUTTON ... passed in 0.183s
+    Then DISCUSSION page displayed ... passed in 2.085s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase></testsuite>

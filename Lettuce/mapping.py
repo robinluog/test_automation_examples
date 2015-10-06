@@ -1,10 +1,7 @@
 #!/usr/bin/python -tt
 # -*- coding: utf-8 -*-
-__author__ = 'Yevhen Vovchuk'
+import time
 
-import datetime
-
-email_pref = datetime.datetime.now().strftime("%d%b%Y%I%M%S")
 
 site_mapping = {
     "header": {
@@ -20,11 +17,10 @@ site_mapping = {
         "button google": "//a[contains(text(),'G')]",
         "button yahoo": "//a[contains(text(),'Y')]",
         "input name": "//input[@id='name']",
-        "name": "YevhenVovchukYevhenVovchukYevhenVovchuk",
-        "true name": "Yevhen Vovchuk",
+        "name": "Some Name",
         "input email": "//input[@id='email']",
-        "email": str(email_pref) + "@gmail.com",
-        "bad email": "vovchuke@gmailcom",
+        "email": "some_mail+{}@gmail.com".format(time.time()),
+        "bad email": "some_mail@gmailcom",
         "input password": "//input[@id='password']",
         "short password": "1",
         "password": "123456789012345678901234567890",
@@ -39,14 +35,6 @@ site_mapping = {
         "alert short password": "//span[contains(text(),'Password must have from 6 to 20 characters')]",
         "alert don't match passwords": "//span[contains(text(),'Oops! Your passwords don’t match, try again.')]",
         "button close alert": "//button[@class='close']"
-    },
-    "sign in": {
-        "url": "https://my-release.solidopinion.com/signin",
-        "input email": "//input[@id='email']",
-        "input password": "//input[@id='password']",
-        "button signin": "//button[@id='go_login_page']",
-        "email": "vovchuke@gmail.com",
-        "password": "123456789012345678901234567890"
     },
     "footer": {
         "link english": "//footer[@id='footer_public_menu']//a[contains(text(),'English')]",

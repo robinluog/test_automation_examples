@@ -1,10 +1,7 @@
-#!/usr/bin/python -tt
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-__author__ = 'Yevhen Vovchuk'
 
-import datetime
-
-email_pref = datetime.datetime.now().strftime("%d%b%Y%I%M%S")
+import time
 
 site_mapping = {
     "header": {
@@ -19,11 +16,10 @@ site_mapping = {
         "button google": "//a[contains(text(),'G')]",
         "button yahoo": "//a[contains(text(),'Y')]",
         "input name": "//input[@id='name']",
-        "name": "YevhenVovchukYevhenVovchukYevhenVovchuk",
-        "true name": "Yevhen Vovchuk",
+        "name": "Some Name",
         "input email": "//input[@id='email']",
-        "email": str(email_pref) + "@gmail.com",
-        "bad email": "vovchuke@gmailcom",
+        "email": "some_mail+{}@gmail.com".format(time.time()),
+        "bad email": "some_mail@gmailcom",
         "input password": "//input[@id='password']",
         "short password": "1",
         "password": "123456789012345678901234567890",
@@ -38,7 +34,7 @@ site_mapping = {
         "input email": "//input[@id='email']",
         "input password": "//input[@id='password']",
         "button signin": "//button[@id='go_login_page']",
-        "email": "vovchuke@gmail.com",
+        "email": "some_mail@gmail.com",
         "password": "123456789012345678901234567890"
     },
     "footer": {

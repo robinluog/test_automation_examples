@@ -1,0 +1,176 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuite errors="0" failures="0" name="sign_up.Sign Up" skipped="0" tests="10" time="26.505647"><testcase classname="sign_up.Sign Up" name="Sign Up with empty data" status="passed" time="3.349546"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @negative @empty_all
+  Scenario: Sign Up with empty data
+    Given I'm on SignUp page ... passed in 2.614s
+    When I click on button signup ... passed in 0.195s
+    Then I see All fields are required. ... passed in 0.540s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="sign_up.Sign Up" name="Sign Up just with name" status="passed" time="1.842217"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @negative @name
+  Scenario: Sign Up just with name
+    Given I'm on SignUp page ... passed in 0.942s
+    When I fill form ... passed in 0.108s
+      | name       | value |
+      | input name | name  |
+    And I click on button signup ... passed in 0.779s
+    Then I see All fields are required. ... passed in 0.012s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="sign_up.Sign Up" name="Sign Up with empty name" status="passed" time="3.742985"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @negative @name
+  Scenario: Sign Up with empty name
+    Given I'm on SignUp page ... passed in 0.838s
+    When I fill form ... passed in 0.587s
+      | name              | value    |
+      | input email       | email    |
+      | input password    | password |
+      | input re-password | password |
+    And I click on button signup ... passed in 0.172s
+    Then I see Apologies, "Name" allows only alphanumeric characters, hyphen, dash, underscores and spaces. ... passed in 2.147s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="sign_up.Sign Up" name="Sign Up with invalid email" status="passed" time="2.048096"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @negative @email
+  Scenario: Sign Up with invalid email
+    Given I'm on SignUp page ... passed in 0.905s
+    When I fill form ... passed in 0.492s
+      | name              | value     |
+      | input name        | name      |
+      | input email       | bad email |
+      | input password    | password  |
+      | input re-password | password  |
+    And I click on button signup ... passed in 0.106s
+    Then I see Please enter a valid email address. ... passed in 0.546s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="sign_up.Sign Up" name="Sign Up with empty email" status="passed" time="2.285278"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @negative @email
+  Scenario: Sign Up with empty email
+    Given I'm on SignUp page ... passed in 1.099s
+    When I fill form ... passed in 0.519s
+      | name              | value    |
+      | input name        | name     |
+      | input password    | password |
+      | input re-password | password |
+    And I click on button signup ... passed in 0.131s
+    Then I see Please enter a valid email address. ... passed in 0.536s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="sign_up.Sign Up" name="Sign Up just with email" status="passed" time="3.316471"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @negative @email
+  Scenario: Sign Up just with email
+    Given I'm on SignUp page ... passed in 0.947s
+    When I fill form ... passed in 0.169s
+      | name        | value |
+      | input email | email |
+    And I click on button signup ... passed in 0.099s
+    Then I see Apologies, "Name" allows only alphanumeric characters, hyphen, dash, underscores and spaces. ... passed in 2.102s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="sign_up.Sign Up" name="Sign Up with invalid short password" status="passed" time="2.571146"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @negative @password
+  Scenario: Sign Up with invalid short password
+    Given I'm on SignUp page ... passed in 0.956s
+    When I fill form ... passed in 0.416s
+      | name              | value          |
+      | input name        | name           |
+      | input email       | email          |
+      | input password    | short password |
+      | input re-password | short password |
+    And I click on button signup ... passed in 0.118s
+    Then I see Password must have from 6 to 20 characters ... passed in 1.082s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="sign_up.Sign Up" name="Sign Up with empty password" status="passed" time="1.780027"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @negative @password
+  Scenario: Sign Up with empty password
+    Given I'm on SignUp page ... passed in 0.825s
+    When I fill form ... passed in 0.271s
+      | name        | value |
+      | input name  | name  |
+      | input email | email |
+    And I click on button signup ... passed in 0.131s
+    Then I see Sorry, password can't be blank. ... passed in 0.553s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="sign_up.Sign Up" name="Sign Up with different passwords" status="passed" time="2.481083"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @negative @password
+  Scenario: Sign Up with different passwords
+    Given I'm on SignUp page ... passed in 1.115s
+    When I fill form ... passed in 0.577s
+      | name              | value          |
+      | input name        | name           |
+      | input email       | email          |
+      | input password    | short password |
+      | input re-password | password       |
+    And I click on button signup ... passed in 0.133s
+    Then I see Oops! Your passwords don’t match, try again. ... passed in 0.656s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="sign_up.Sign Up" name="Sign Up with good data" status="passed" time="3.088797"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @positive @full
+  Scenario: Sign Up with good data
+    Given I'm on SignUp page ... passed in 0.808s
+    When I fill form ... passed in 0.610s
+      | name              | value    |
+      | input name        | name     |
+      | input email       | email    |
+      | input password    | password |
+      | input re-password | password |
+    And I click on button signup ... passed in 0.113s
+    Then I see Welcome to SolidOpinion! ... passed in 1.558s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase></testsuite>

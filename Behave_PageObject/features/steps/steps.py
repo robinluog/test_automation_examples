@@ -1,38 +1,28 @@
-from behave import *
-from ...pages import *
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from pages import *
 
-@step('I\'m on "{page}" page')
+
+@given ('I\'m on {page} page')
 def open_page(context, page):
+    context.page = eval('{}Page'.format(page))(context)
 
-    a = SignUpPage()
-    a.openPage()
-    a.signup()
+@when  ('I click {some}')
+def click_some(context, some):
+    context.page.click_(some)
 
+@then  ('I see message: {}')
+def see_some(context, text):
+    context.page.see_text(text)
 
-    # main_page = page.SignIn(context.browser)
-    # context.map = context.mapping[page]
-    # context.browser.maximize_window()
-    # context.browser.get(context.map['url'])
+@step ('I fill form')
+def fill_form(context):
+    for row in context.table:
+        field = row['name']
+        value = row['value']
+        context.page.fill_signup_form(field, value)
 
-# @step('I click on "{item}"')
-# def click_button(context, item):
-#     element = WebDriverWait(context.browser, 2).until(EC.presence_of_element_located((By.XPATH, context.map[item])))
-#     element.click()
-#
-# @step('I see "{text}"')
-# def chek_what_i_see(context, text):
-#     try:
-#         WebDriverWait(context.browser, 2).until(EC.presence_of_element_located((By.XPATH, '//*[contains(text(),"'+text+'")]')))
-#     except:
-#         WebDriverWait(context.browser, 2).until(EC.presence_of_element_located((By.XPATH, "//*[contains(text(),'"+text+"')]")))
-#
-# @step('I fill form')
-# def fill_form(context):
-#     for row in context.table:
-#         input_ = context.map[row['name']]
-#         value_ = context.map[row['value']]
-#         element = WebDriverWait(context.browser, 2).until(EC.presence_of_element_located((By.XPATH, input_)))
-#         element.send_keys(value_)
+@then  ('{} page displayed')
+def check_page(context, name):
+    context.page.check_current_page(name)

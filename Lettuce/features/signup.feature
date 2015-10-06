@@ -1,7 +1,7 @@
-Feature: Sign In
+Feature: Sign Up
     As visitor of solidopinion.com
     I should have possibility
-    For sign in on site
+    For sign up on site
 
     Scenario: Sign In with empty data
         Given I go to "sign up" page
@@ -73,7 +73,7 @@ Feature: Sign In
 
     Scenario: Sign In with good data
         Given I go to "sign up" page
-        When I fill "input name" by "true name" in "sign up"
+        When I fill "input name" by "name" in "sign up"
         And I fill "input email" by "email" in "sign up"
         And I fill "input password" by "password" in "sign up"
         And I fill "input re-password" by "password" in "sign up"
