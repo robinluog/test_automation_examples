@@ -1,4 +1,4 @@
-# test_automation_examples
+# Examples of some Test Automation with Python + Selenium + BDD
 
 There are placed some test automation examples.
 
