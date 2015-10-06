@@ -3,9 +3,9 @@
 
 There are placed some test automation examples.
 
-* Python + Selenium + Lettuce + Locators
-* Python + Selenium + Behave + Locators
-* Python + Selenium + PageObject + Locators
+* Python + Selenium + Lettuce
+* Python + Selenium + Behave
+* Python + Selenium + PageObject
 
 Lettuce: http://lettuce.it/
 
