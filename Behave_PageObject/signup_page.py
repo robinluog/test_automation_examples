@@ -1,12 +1,9 @@
 from selenium.webdriver.common.by import By
 import time
+from base_page import BasePage
 
-
-class Pages(object):
-    DISCUSSION = "http://solidopinion.com/soliddiscussion/"
-
-class SignUpLocators(object):
-    URL = "https://my-release.solidopinion.com/signup"
+class SignUpPage(BasePage):
+    PAGE = "SIGNUP"
     FB_BUTTON = (By.XPATH, "//a[contains(text(),'F')]")
     TW_BUTTON = (By.XPATH, "//a[contains(text(),'T')]")
     VK_BUTTON = (By.XPATH, "//a[contains(text(),'V')]")
@@ -26,6 +23,13 @@ class SignUpLocators(object):
     HAVE_ACCOUNT_LINK = (By.XPATH, "//div[@id='conteiner-signin']//a[contains(text(),'Already have an account?')]")
     CLOSE_ALERT_MSG = (By.XPATH, "//button[@class='close']")
 
-class MainPageLocators(object):
-    URL = "http://solidopinion.com"
-    DISCUSSION_BUTTON = (By.XPATH, "//a[contains(text(),'SolidDiscussion')]")
+    def __init__(self, context):
+        super(SignUpPage, self).__init__(context)
+        self.open_page(self.PAGE)
+
+    def click_(self, el):
+        self.click_element(eval('self.{}'.format(el)))
+
+    def fill_signup_form(self, field, value):
+        self.fill_form(eval('self.{}'.format(field)), eval('self.{}'.format(value)))
+

@@ -1,8 +1,5 @@
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from pages import *
-
+from ...main_page import MainPage
+from ...signup_page import SignUpPage
 
 @given ('I\'m on {page} page')
 def open_page(context, page):
