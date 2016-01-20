@@ -10,3 +10,9 @@ but in that case you need to install *ipdb*:
 
 For run behave with generating report in XML run:
 `behave --junit`
+
+For run specified by tags tests:
+`behave --tags=tag1,tag2`
+
+For run all except tagged test:
+`behave --tags=-tag3`
